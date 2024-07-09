@@ -30,6 +30,7 @@ export default class AnimaNumeros {
     );
   }
 
+  // funcao que ocorre quando a mutacao ocorrer
   handleMutation(mutation) {
     if (mutation[0].target.classList.contains(this.observerClass)) {
       this.observer.disconnect();
@@ -37,6 +38,8 @@ export default class AnimaNumeros {
     }
   }
 
+  // adiciona o MutationObserver para verificar
+  // quando a classe ativo é adicionada ao element target
   addMutationObserver() {
     this.observer = new MutationObserver(this.handleMutation);
     this.observer.observe(this.observerTarget, { attributes: true });
